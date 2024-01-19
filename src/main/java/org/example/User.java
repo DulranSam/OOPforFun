@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class User {
     protected String username;
@@ -47,6 +48,29 @@ public class User {
             System.out.println("Stored for backup in -> "+userData);
         }catch(Exception e){
             System.out.println(e);
+        }
+    }
+
+    public void removeUser(String username){
+        if(users.isEmpty()){
+            return;
+        }
+        for(User x : users){
+            if(Objects.equals(x.username, username)){
+                users.remove(username);
+            }else{
+                System.out.println("Invalid User!");
+            }
+        }
+    }
+
+    public void similarArray(){
+        String[] test = new String[users.size()];
+        int length = test.length;
+        if(length>0){
+            System.out.println("Your length is -> "+length);
+        }else{
+            System.out.println("Your array is small -> "+length);
         }
     }
 
